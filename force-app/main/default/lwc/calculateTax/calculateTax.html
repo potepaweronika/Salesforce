@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Calculate Tax" icon-name="action:money">
+        <div class="slds-m-around_medium">
+            <lightning-combobox label="Select Country" value={selectedCountry} options={countryOptions} onchange={handleCountryChange}></lightning-combobox>
+        </div>
+        <div class="slds-m-around_medium">
+            <p>Calculated Tax: {calculatedTax}</p>
+        </div>
+    </lightning-card>
+</template>

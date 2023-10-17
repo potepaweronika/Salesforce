@@ -6,7 +6,7 @@
     }
   ],
   "name": "kwa2023",
-  "namespace": "",
+  "namespace": "kwa2023",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "58.0"
 }

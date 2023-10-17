@@ -10,6 +10,7 @@ public class InvoiceCalculator {
         return taxes;
     }
 
+    @AuraEnabled(cacheable=true)
     public static Decimal calculateTax(Invoice__c invoice) {
         String country = invoice.Country__c;
         

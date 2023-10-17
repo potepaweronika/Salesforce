@@ -1,0 +1,7 @@
+<aura:component implements="force:hasRecordId,flexipage:availableForRecordHome">
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="totalInvoices" type="Decimal" default="0.00" />
+
+    <!-- Display the total invoice amount -->
+    Total Sum for Invoices: {!v.totalInvoices}
+</aura:component>

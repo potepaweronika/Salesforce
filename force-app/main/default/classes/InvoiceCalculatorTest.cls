@@ -8,7 +8,7 @@ public class InvoiceCalculatorTest {
         insert taxRate;
 
         // Create a test Invoice__c record
-        Invoice__c invoice = new Invoice__c(Name = 'Test Invoice', Country__c = 'USA', Amount__c = 100.0);
+        Invoice__c invoice = new Invoice__c(Name = 'Test Invoice', Country__c = 'USA', Amount__c = 100.0, Status__c = 'Awaiting payment');
         insert invoice;
 
         // Call the method and verify the result
@@ -19,7 +19,7 @@ public class InvoiceCalculatorTest {
     @isTest
     static void testCalculateTaxForSingleRecordWithMissingTaxRate() {
         // Create a test Invoice__c record for a country with no tax rate
-        Invoice__c invoice = new Invoice__c(Name = 'Test Invoice', Country__c = 'UK', Amount__c = 100.0);
+        Invoice__c invoice = new Invoice__c(Name = 'Test Invoice', Country__c = 'UK', Amount__c = 100.0, Status__c = 'Awaiting payment');
         insert invoice;
 
         // Call the method and verify that it handles missing tax rates correctly
@@ -36,8 +36,8 @@ public class InvoiceCalculatorTest {
 
         // Create a list of test Invoice__c records with different countries
         List<Invoice__c> invoices = new List<Invoice__c>{
-            new Invoice__c(Name = 'Invoice 1', Country__c = 'USA', Amount__c = 100.0),
-            new Invoice__c(Name = 'Invoice 2', Country__c = 'UK', Amount__c = 200.0)
+            new Invoice__c(Name = 'Invoice 1', Country__c = 'USA', Amount__c = 100.0, Status__c = 'Awaiting payment'),
+            new Invoice__c(Name = 'Invoice 2', Country__c = 'UK', Amount__c = 200.0, Status__c = 'Awaiting payment')
         };
         insert invoices;
 
@@ -53,8 +53,8 @@ public class InvoiceCalculatorTest {
     static void testCalculateTaxForListOfRecordsWithMissingTaxRate() {
         // Create a list of test Invoice__c records with different countries
         List<Invoice__c> invoices = new List<Invoice__c>{
-            new Invoice__c(Name = 'Invoice 1', Country__c = 'USA', Amount__c = 100.0),
-            new Invoice__c(Name = 'Invoice 2', Country__c = 'UK', Amount__c = 200.0)
+            new Invoice__c(Name = 'Invoice 1', Country__c = 'USA', Amount__c = 100.0, Status__c = 'Awaiting payment'),
+            new Invoice__c(Name = 'Invoice 2', Country__c = 'UK', Amount__c = 200.0, Status__c = 'Awaiting payment')
         };
         insert invoices;
 

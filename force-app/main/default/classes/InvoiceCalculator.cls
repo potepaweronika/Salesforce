@@ -1,15 +1,4 @@
 public with sharing class InvoiceCalculator {
-    public static List<Decimal> calculateTaxForInvoices(List<Invoice__c> invoices) {
-        List<Decimal> taxes = new List<Decimal>();
-        
-        for (Invoice__c invoice : invoices) {
-            Decimal tax = calculateTax(invoice);
-            taxes.add(tax);
-        }
-        
-        return taxes;
-    }
-
     @AuraEnabled(cacheable=true)
     public static Decimal calculateTaxForCountry(Decimal amount, String country) {
         // Query the Country_Tax_Rate__c object to get the tax rate based on the country
@@ -27,6 +16,16 @@ public with sharing class InvoiceCalculator {
         }
     }
 
+    public static List<Decimal> calculateTaxForInvoices(List<Invoice__c> invoices) {
+        List<Decimal> taxes = new List<Decimal>();
+        
+        for (Invoice__c invoice : invoices) {
+            Decimal tax = calculateTax(invoice);
+            taxes.add(tax);
+        }
+        
+        return taxes;
+    }
 
     @AuraEnabled(cacheable=true)
     public static Decimal calculateTax(Invoice__c invoice) {

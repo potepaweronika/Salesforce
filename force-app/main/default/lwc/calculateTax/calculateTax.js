@@ -1,6 +1,5 @@
 import { LightningElement, wire, track, api } from 'lwc';
-import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
-// import INVOICE_OBJECT from '@salesforce/schema/Invoice__c';
+import { getRecord } from 'lightning/uiRecordApi';
 import calculateTaxForCountry from '@salesforce/apex/InvoiceCalculator.calculateTaxForCountry';
 import getCountryOptions from '@salesforce/apex/CountryController.getCountryOptions';
 

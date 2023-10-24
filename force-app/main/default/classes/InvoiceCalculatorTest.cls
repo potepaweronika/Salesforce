@@ -13,7 +13,7 @@ public class InvoiceCalculatorTest {
 
         // Call the method and verify the result
         Decimal tax = InvoiceCalculator.calculateTax(invoice);
-        System.assertEquals(10.0, tax);
+        System.assertEquals(10.0, tax, 'Tax is correct');
     }
 
     @isTest
@@ -24,7 +24,7 @@ public class InvoiceCalculatorTest {
 
         // Call the method and verify that it handles missing tax rates correctly
         Decimal tax = InvoiceCalculator.calculateTax(invoice);
-        System.assertEquals(0.0, tax);
+        System.assertEquals(0.0, tax, 'Tax is incorrect');
     }
 
     @isTest
@@ -45,8 +45,8 @@ public class InvoiceCalculatorTest {
         List<Decimal> taxes = InvoiceCalculator.calculateTaxForInvoices(invoices);
 
         // Verify the results
-        System.assertEquals(10.0, taxes[0]);
-        System.assertEquals(10.0, taxes[1]);
+        System.assertEquals(10.0, taxes[0], 'Tax for Invoice 1 is correct');
+        System.assertEquals(10.0, taxes[1], 'Tax for Invoice 2 is correct');
     }
 
     @isTest
@@ -62,7 +62,7 @@ public class InvoiceCalculatorTest {
         List<Decimal> taxes = InvoiceCalculator.calculateTaxForInvoices(invoices);
 
         // Verify the results
-        System.assertEquals(0.0, taxes[0]);
-        System.assertEquals(0.0, taxes[1]);
+        System.assertEquals(0.0, taxes[0], 'Tax for Invoice 1 is incorrect');
+        System.assertEquals(0.0, taxes[1], 'Tax for Invoice 2 is incorrect');
     }
 }
